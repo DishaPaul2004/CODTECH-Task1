@@ -1,0 +1,39 @@
+const inputTask=document.getElementById("myInput");
+const taskList=document.getElementById("list-of-tasks");
+function add(){
+    if(inputTask.value==''){
+        alert("Please enter the task!");
+    }
+    else{
+        let li=document.createElement("li");
+        li.innerHTML=inputTask.value;
+        taskList.appendChild(li);
+        let del=document.createElement("span");
+        del.innerHTML="\u00d7";
+        li.appendChild(del);
+    }
+    inputTask.value = "";
+    saveTasks();
+}
+
+taskList.addEventListener("click", function(ev){
+    if(ev.target.tagName === "LI"){
+        ev.target.classList.toggle("checked");
+        saveTasks();
+    }
+    else if(ev.target.tagName === "SPAN"){
+        ev.target.parentElement.remove();
+        saveTasks();
+    }
+}, false);
+
+function saveTasks(){
+    localStorage.setItem("tasks", taskList.innerHTML);
+}
+
+function displayTasks()
+{
+    taskList.innerHTML=localStorage.getItem("tasks");
+}
+
+displayTasks();
