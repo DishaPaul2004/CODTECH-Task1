@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My to-do list</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="to_do_list.css">  
+    </head>
+    <body>
+        <div class="container" align="center">
+            <h1>My to-do list</h1>
+            <div class="input-tasks">
+                <input type="text" id="myInput" placeholder="Task...">
+                <button onclick="add()">ADD</button>
+            </div>
+            <div class="tasks-list">
+                <ul id="list-of-tasks">
+                </ul>
+            </div>
+        </div>
+    <script src="to_do_list.js"></script>
+    </body>
+</html>
